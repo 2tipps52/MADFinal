@@ -1,6 +1,7 @@
 package com.example.a2tipps52.mad;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -30,7 +31,7 @@ public class MAD extends AppCompatActivity {
         Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this));
         setContentView(R.layout.activity_mad);
         mv = (MapView)findViewById(R.id.map1);
-
+        mv.getOverlays().add(items);
         mv.setBuiltInZoomControls(true);
         mv.getController().setZoom(14);
         mv.getController().setCenter(new GeoPoint(51.05,-0.72));
@@ -71,6 +72,12 @@ public class MAD extends AppCompatActivity {
                 System.out.println("Could not save a place" + e);
             }
         }
+        if (item.getItemId() == R.id.prefs) {
+            Intent intent = new Intent(this, Prefs.class);
+            startActivityForResult(intent, 1);
+            return true;
+        }
+
         return false;
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
@@ -85,9 +92,23 @@ public class MAD extends AppCompatActivity {
 
                 OverlayItem AnItem = new OverlayItem(name, description, new GeoPoint(latttttt, longgggg));
                 items.addItem(AnItem);
+                mv.invalidate();
             }
         }
 
+
+    }
+    @Override
+    public void onStart(){
+        super.onStart();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        Boolean preference = prefs.getBoolean("miccheck", false);
+        if (preference == false){
+            Toast.makeText(this, "no", Toast.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText(this, "yes", Toast.LENGTH_LONG).show();
+        }
     }
 }
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/addpoi" android:title="@string/addpoi"/>
-    <item android:id="@+id/savepoi" android:title="@string/savepoi"/>
+    <item android:id="@+id/addpoi" android:title="addpoi"/>
+    <item android:id="@+id/savepoi" android:title="savepoi"/>
+    <item android:id="@+id/prefs" android:title="prefs"/>
 </menu>

@@ -1,26 +1,29 @@
 package com.example.a2tipps52.mad;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class ADDActivity extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addmaen);
-        Button B = (Button)findViewById(R.id.b);
+        Button B = (Button) findViewById(R.id.b);
         B.setOnClickListener(this);
     }
 
-    public void onClick(View view){
-        EditText placen = (EditText)findViewById(R.id.naem);
+    public void onClick(View view) {
+        EditText placen = (EditText) findViewById(R.id.naem);
         String nplace = placen.getText().toString();
-        EditText placet = (EditText)findViewById(R.id.typtxt);
+        EditText placet = (EditText) findViewById(R.id.typtxt);
         String tplace = placet.getText().toString();
-        EditText placed = (EditText)findViewById(R.id.destxt);
+        EditText placed = (EditText) findViewById(R.id.destxt);
         String dplace = placed.getText().toString();
 
         Bundle bundle = new Bundle();
