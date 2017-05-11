@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MAD</string>
+    <string name="addpoi" >add</string>
+    <string name="savepoi">save</string>
+</resources>
